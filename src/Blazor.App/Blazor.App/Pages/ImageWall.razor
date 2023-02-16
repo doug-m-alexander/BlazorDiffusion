@@ -1,0 +1,58 @@
+﻿@using Blazor.App.Models
+@inject Services.DiffusionImageProviderService ImageService
+
+<PageTitle>Image Wall</PageTitle>
+
+
+@if (currentImages.Count == 0)
+{
+  <p><em>Loading...</em></p>
+}
+else
+{
+  for (int i = 0; i < rowCount; i++)
+  {
+    var localvariable = i;
+    <RadzenRow class="rz-text-align-center" Style="padding: 40px;" JustifyContent="@justifyContent" AlignItems="@alignItems" Gap="@gap">
+        <RadzenColumn>
+            <RadzenImage Path="@($"Images/{currentImages[(localvariable*3)].ImagePath}.png")"></RadzenImage>
+        </RadzenColumn>
+        <RadzenColumn>
+            <RadzenImage Path="@($"Images/{currentImages[(localvariable*3)+1].ImagePath}.png")"></RadzenImage>
+        </RadzenColumn>
+        <RadzenColumn>
+            <RadzenImage Path="@($"Images/{currentImages[(localvariable*3)+2].ImagePath}.png")"></RadzenImage>
+        </RadzenColumn>
+    </RadzenRow>
+  }
+  if (lastColumnCount > 0)
+  {
+    <RadzenRow class="rz-text-align-center" Style="padding: 40px;" JustifyContent="@justifyContent" AlignItems="@alignItems" Gap="@gap">
+      @for (int i = currentImages.Count - lastColumnCount; i < currentImages.Count; i++)
+    {
+        var localvariable = i;
+        <RadzenColumn>
+                <RadzenImage Path="@($"Images/{currentImages[i-1].ImagePath}.png")"></RadzenImage>
+        </RadzenColumn>
+    }
+    </RadzenRow>
+  }
+}
+
+@code {
+  private SortedList<int, DiffusionImage> currentImages;
+  AlignItems alignItems = AlignItems.Center;
+  JustifyContent justifyContent = JustifyContent.SpaceBetween;
+  string gap = "2rem";
+
+  int rowCount = 0;
+  int lastColumnCount = 0;
+
+  protected override void OnInitialized()
+  {
+    currentImages = ImageService.GetDiffusionImages();
+
+    rowCount = currentImages.Count / 3;
+    lastColumnCount = currentImages.Count % 3;
+  }
+}

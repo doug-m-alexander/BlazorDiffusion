@@ -1,5 +1,6 @@
 using Blazor.App.Areas.Identity;
 using Blazor.App.Data;
+using Blazor.App.Services;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Web;
@@ -35,7 +36,7 @@ namespace Blazor.App
             services.AddServerSideBlazor();
 
             services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<IdentityUser>>()
-                    .AddSingleton<WeatherForecastService>();
+                    .AddSingleton<DiffusionImageProviderService>();
 
             if (builder.Environment.IsDevelopment())
             {

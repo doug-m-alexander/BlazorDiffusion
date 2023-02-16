@@ -15,6 +15,31 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.2" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.0" />
+    <PackageReference Include="Radzen.Blazor" Version="4.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\Images\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Images\beachSilhouettes.png" />
+    <None Include="wwwroot\Images\chessInThePark.png" />
+    <None Include="wwwroot\Images\christianAlbum.png" />
+    <None Include="wwwroot\Images\evilGayAgenda.png" />
+    <None Include="wwwroot\Images\gatsby.png" />
+    <None Include="wwwroot\Images\giantManBread.png" />
+    <None Include="wwwroot\Images\guggable.png" />
+    <None Include="wwwroot\Images\hobbit.png" />
+    <None Include="wwwroot\Images\jqquiuilles.png" />
+    <None Include="wwwroot\Images\legoChessRainbow.png" />
+    <None Include="wwwroot\Images\legoMen.png" />
+    <None Include="wwwroot\Images\manSandwich.png" />
+    <None Include="wwwroot\Images\mtgRickAstley.png" />
+    <None Include="wwwroot\Images\oatmealTerrorist.png" />
+    <None Include="wwwroot\Images\planetGottfried.png" />
+    <None Include="wwwroot\Images\rvivve.png" />
+    <None Include="wwwroot\Images\youyoropear.png" />
   </ItemGroup>
 
 </Project>
