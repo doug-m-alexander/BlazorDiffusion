@@ -13,7 +13,7 @@ jobs:
       id: vars
       run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
     - name: Build and push Docker images
-      uses: docker/build-push-action@4.0.0
+      uses: docker/build-push-action@v4.0.0
       with:
         file: ./src/Blazor.App/Dockerfile
         push: true
