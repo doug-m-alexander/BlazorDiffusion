@@ -36,4 +36,4 @@ jobs:
         file: ./src/Blazor.App/Dockerfile
         labels: ${{ steps.meta.outputs.labels }}
         push: ${{ github.event_name != 'pull_request' }}
-        tags: ${{ env.IMAGE_NAME }}:${{ steps.vars.outputs.sha_short }}
+        tags: ${{ steps.docker_meta.outputs.tags }}
