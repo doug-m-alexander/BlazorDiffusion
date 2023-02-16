@@ -9,10 +9,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+    - name: Set outputs
+      id: vars
+      run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
     - name: Build and push Docker images
-      uses: docker/build-push-action@v4.0.0
+      uses: docker/build-push-action@4.0.0
       with:
-        file: Dockerfile
+        file: ./src/Blazor.App/Dockerfile
         push: true
-        tags: BlazorDiffusion:$(date +%s)
+        tags: BlazorDiffusion:${{ steps.vars.outputs.sha_short }}
         github-token: ${{ github.token }}
