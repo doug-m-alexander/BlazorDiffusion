@@ -19,4 +19,3 @@ jobs:
         file: ./src/Blazor.App/Dockerfile
         push: true
         tags: blazordiffusion:${{ steps.vars.outputs.sha_short }}
-        github-token: ${{ github.token }}
